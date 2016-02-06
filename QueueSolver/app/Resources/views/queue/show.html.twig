@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Queue</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ queue.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ queue.name }}</td>
+            </tr>
+            <tr>
+                <th>Enterprise</th>
+                <td>{{ queue.enterprise }}</td>
+            </tr>
+            <tr>
+                <th>Branchoffice</th>
+                <td>{{ queue.branchoffice }}</td>
+            </tr>
+            <tr>
+                <th>Peoplequeued</th>
+                <td>{{ queue.peoplequeued }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('queue_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('queue_edit', { 'id': queue.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

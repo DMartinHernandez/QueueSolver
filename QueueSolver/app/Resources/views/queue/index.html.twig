@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Queue list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Enterprise</th>
+                <th>Branchoffice</th>
+                <th>Peoplequeued</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for queue in queues %}
+            <tr>
+                <td><a href="{{ path('queue_show', { 'id': queue.id }) }}">{{ queue.id }}</a></td>
+                <td>{{ queue.name }}</td>
+                <td>{{ queue.enterprise }}</td>
+                <td>{{ queue.branchoffice }}</td>
+                <td>{{ queue.peoplequeued }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('queue_show', { 'id': queue.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('queue_edit', { 'id': queue.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('queue_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
