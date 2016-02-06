@@ -78,7 +78,7 @@ class QueueController extends Controller
     /**
      * Displays a form to edit an existing Queue entity.
      *
-     * @Route("/{id}/edit", name="queue_edit")
+     * @Route("/edit/{id}", name="queue_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Queue $queue)
